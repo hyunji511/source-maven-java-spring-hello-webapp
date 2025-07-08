@@ -22,7 +22,7 @@ public class WelcomeController {
     }
 
     private String getMessage() {
-        return "New pages";
+        return "New page";
     }
 
 }

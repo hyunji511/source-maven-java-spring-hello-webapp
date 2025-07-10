@@ -30,7 +30,7 @@ pipeline {
         label 'controller' 
       }      
       steps {        
-        sh 'docker image build -t hyunji511/jekinsfiledocker:$BUILD_NUMBER .'      
+        sh 'docker image build -t hyunji511/jenkinsfiledocker:$BUILD_NUMBER .'      
       }    
     }    
     stage('Tag Docker Image') {      

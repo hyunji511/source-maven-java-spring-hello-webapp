@@ -30,7 +30,7 @@ pipeline {
         label 'controller' 
       }      
       steps {        
-        sh 'docker image build -t hyunji511/Jekinsfile-docker:$BUILD_NUMBER .'      
+        sh 'docker image build -t hyunji511/Jekinsfiledocker:$BUILD_NUMBER .'      
       }    
     }    
     stage('Tag Docker Image') {      
@@ -38,7 +38,7 @@ pipeline {
         label 'controller' 
       }      
       steps {        
-        sh 'docker image tag hyunji511/Jenkinsfile-docker:$BUILD_NUMBER hyunji511/Jenkinsfile-docker:latest'
+        sh 'docker image tag hyunji511/Jenkinsfiledocker:$BUILD_NUMBER hyunji511/Jenkinsfiledocker:latest'
       }    
 	  }    
 	  stage('Publish Docker Image') {      
@@ -47,8 +47,8 @@ pipeline {
 		  }      
 		  steps {        
 		    withDockerRegistry(credentialsId: 'docker-registry-credential', url: 'https://index.docker.io/v1/') {          
-			 sh 'docker image push hyunji511/Jenkinsfile-docker:$BUILD_NUMBER'             
-                         sh 'docker image push hyunji511/Jenkinsfile-docker:latest'        
+			 sh 'docker image push hyunji511/Jenkinsfiledocker:$BUILD_NUMBER'             
+                         sh 'docker image push hyunji511/Jenkinsfiledocker:latest'        
 			  }      
 			}    
 	  }    
@@ -57,7 +57,7 @@ pipeline {
 	      label 'controller' 
 	    }      
 	    steps {        
-	      sh 'docker container run --detach --name my-tomcat -p 80:8080 hyunji511/Jenkinsfile-docker:latest'      
+	      sh 'docker container run --detach --name my-tomcat -p 80:8080 hyunji511/Jenkinsfiledocker:latest'      
 	    }    
 	  }  
 	}

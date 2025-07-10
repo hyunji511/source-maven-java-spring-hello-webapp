@@ -38,7 +38,7 @@ pipeline {
         label 'controller' 
       }      
       steps {        
-        sh 'docker image tag hyunji511/jenkinsfiledocker:$BUILD_NUMBER hyunji511/Jenkinsfiledocker:latest'
+        sh 'docker image tag hyunji511/jenkinsfiledocker:$BUILD_NUMBER hyunji511/jenkinsfiledocker:latest'
       }    
 	  }    
 	  stage('Publish Docker Image') {      
